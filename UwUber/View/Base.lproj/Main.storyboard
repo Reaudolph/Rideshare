@@ -77,6 +77,7 @@
                                             <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="LoginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="www-gV-dVD"/>
                                             <segue destination="P0s-Ep-iyT" kind="show" id="Snr-Dt-Edm"/>
                                         </connections>
                                     </button>
@@ -110,6 +111,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OhT-m6-Mfb"/>
+                    <connections>
+                        <outlet property="LoginButton" destination="vhZ-Q1-n68" id="RRD-hE-3XO"/>
+                        <outlet property="emailTextField" destination="vr3-49-bCK" id="EMW-ak-Kh7"/>
+                        <outlet property="passwordTextField" destination="7dP-Bp-Sx8" id="ikD-1d-yiN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -241,6 +247,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="oVu-FZ-qBF"/>
         <segue reference="a3X-8c-VUu"/>
     </inferredMetricsTieBreakers>
     <resources>
