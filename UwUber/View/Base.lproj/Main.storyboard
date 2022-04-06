@@ -62,7 +62,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="tjc-FT-Y5v"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -157,7 +157,7 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="Sb9-J0-TrL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="password"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pab-Mr-LKa">
                                         <rect key="frame" x="36.666666666666657" y="252" width="167" height="32"/>
@@ -247,7 +247,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oVu-FZ-qBF"/>
         <segue reference="a3X-8c-VUu"/>
     </inferredMetricsTieBreakers>
     <resources>

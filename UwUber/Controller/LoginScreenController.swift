@@ -14,7 +14,6 @@ class LoginScreenController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
-    
     @IBAction func LoginButtonPressed(_ sender: Any) {
         guard let userPassword = passwordTextField.text else {return }
         guard let email  = emailTextField.text else {return}
