@@ -28,9 +28,13 @@ class SignUpController: UIViewController {
         
         
         
+        
+        
         print(userEmail)
         print(userUsername)
         print(userPassword)
+        
+        
         
         
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { (result, error) in

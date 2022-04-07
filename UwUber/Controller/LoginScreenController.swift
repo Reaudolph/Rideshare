@@ -19,15 +19,21 @@ class LoginScreenController: UIViewController {
         guard let email  = emailTextField.text else {return}
         
         Auth.auth().signIn(withEmail: email, password: userPassword) { [weak self] authResult, error in
+            
             print("coundnt \(error?.localizedDescription)")
+            
+            
             guard let strongSelf = self else { return }
           // ...
+            
+            
         }
-        
-        
-        
     }
-    override func viewDidLoad() {
+        
+ 
+        override func viewDidLoad() {
+            
+            
         super.viewDidLoad()
 //        title = "Login"
         
@@ -37,7 +43,10 @@ class LoginScreenController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    
+    }
 
 
-}
+
 
