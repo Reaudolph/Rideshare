@@ -8,25 +8,24 @@
 import Foundation
 import UIKit
 import Firebase
-
+import MapKit
+import CoreLocation
 
 class MapController : UIViewController {
     
     
-    
-    
-    
+    private let map: MKMapView = {
+        let map = MKMapView()
+        return map
+    }()
 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
         
         
         checkUserLoggedIn()
-        view.backgroundColor = .white
+       
         
         
         // Do any additional setup after loading the view.
@@ -45,8 +44,18 @@ class MapController : UIViewController {
             print(" User is not logged in learn to spell")
         }
         else{
+            
+            
             print (" User ID is \(Auth.auth().currentUser?.uid)")
+            setHomeScreenView()
+            
+
+            print("test")
         }
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        map.frame=view.bounds
     }
     
     func signUserOut(){
@@ -59,6 +68,12 @@ class MapController : UIViewController {
             
         }
     }
+    
+    func setHomeScreenView(){
+        super.viewDidLoad()
+        view.addSubview(map)
+    }
+    
 
 
 }
