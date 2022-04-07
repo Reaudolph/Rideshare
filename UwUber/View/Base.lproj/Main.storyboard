@@ -115,7 +115,6 @@
                         <outlet property="LoginButton" destination="vhZ-Q1-n68" id="RRD-hE-3XO"/>
                         <outlet property="emailTextField" destination="vr3-49-bCK" id="EMW-ak-Kh7"/>
                         <outlet property="passwordTextField" destination="7dP-Bp-Sx8" id="ikD-1d-yiN"/>
-                        <segue destination="P0s-Ep-iyT" kind="show" id="mLv-uE-JTt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -259,7 +258,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mLv-uE-JTt"/>
+        <segue reference="oVu-FZ-qBF"/>
         <segue reference="a3X-8c-VUu"/>
     </inferredMetricsTieBreakers>
     <resources>

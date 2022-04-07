@@ -24,18 +24,23 @@ class LoginScreenController: UIViewController {
             
             
             guard let strongSelf = self else { return }
-          // ...
+            // ...
+            guard let controller  = UIApplication.shared.keyWindow?.rootViewController as? MapController else {return}
+            guard let thisController = LoginScreenController() as? UIViewController else { return }
+            thisController.presentingViewController?.dismiss(animated: false, completion:nil)
             
+
+                    
             
         }
     }
+    
+    
+    override func viewDidLoad() {
         
- 
-        override func viewDidLoad() {
-            
-            
+        
         super.viewDidLoad()
-//        title = "Login"
+        //        title = "Login"
         
         
         
@@ -45,7 +50,7 @@ class LoginScreenController: UIViewController {
     }
     
     
-    }
+}
 
 
 

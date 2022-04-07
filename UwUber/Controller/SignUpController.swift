@@ -10,7 +10,7 @@ import Firebase
 import UIKit
 
 class SignUpController: UIViewController {
-
+    
     @IBOutlet weak var userUsernameTextField: UITextField!
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -23,20 +23,12 @@ class SignUpController: UIViewController {
         guard let userPassword = passwordTextField.text else { return }
         guard let userUsername  = userUsernameTextField.text else { return }
         let userIndexChoice = userRoleChoice.selectedSegmentIndex
-        
-        
-        
-        
-        
-        
-        
+
         print(userEmail)
         print(userUsername)
         print(userPassword)
         
-        
-        
-        
+
         Auth.auth().createUser(withEmail: userEmail, password: userPassword) { (result, error) in
             if let error = error {
                 print("an error occured \(error)")
@@ -48,24 +40,27 @@ class SignUpController: UIViewController {
                           "userRole" : userIndexChoice] as [String : Any]
             
             Database.database().reference().child("users").child(uid).updateChildValues(data) { error, ref in
+                guard let controller  = UIApplication.shared.keyWindow?.rootViewController as? MapController else {return}
+                guard let thisController = SignUpController() as? UIViewController else { return }
+                thisController.presentingViewController?.dismiss(animated: false, completion:nil)
                 
                 print("Saved Data")
             }
         }
         
-        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        title = "Sign Up"
+        //        title = "Sign Up"
         
         
         
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
 }
 
 

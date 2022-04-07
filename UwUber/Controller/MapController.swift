@@ -13,25 +13,23 @@ import CoreLocation
 
 class MapController : UIViewController {
     
-    
+    private let locationManager = CLLocationManager()
     private let map: MKMapView = {
         let map = MKMapView()
         return map
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
-        
-        
         checkUserLoggedIn()
-       
+        checkLocationAuthorization()
+        map.showsUserLocation = true
+        map.userTrackingMode = .follow
         
-        
+                
         // Do any additional setup after loading the view.
     }
-    
-    
     func checkUserLoggedIn (){
         
         if Auth.auth().currentUser?.uid == nil {
@@ -39,17 +37,15 @@ class MapController : UIViewController {
             DispatchQueue.main.async {
                 let nav = self.storyboard?.instantiateViewController(withIdentifier: "LoginScreenController") as! LoginScreenController
                 self.present(nav, animated: true, completion: nil)
-
+                
             }
             print(" User is not logged in learn to spell")
         }
         else{
-            
-            
+           
             print (" User ID is \(Auth.auth().currentUser?.uid)")
             setHomeScreenView()
-            
-
+         
             print("test")
         }
     }
@@ -69,11 +65,33 @@ class MapController : UIViewController {
         }
     }
     
+
+    
     func setHomeScreenView(){
         super.viewDidLoad()
         view.addSubview(map)
     }
     
-
-
+    func checkLocationAuthorization() {
+        
+            switch CLLocationManager.authorizationStatus() {
+            case .authorizedWhenInUse:
+                locationManager.requestAlwaysAuthorization()
+                break
+            case .denied:
+                locationManager.requestAlwaysAuthorization()
+                break
+            case .notDetermined:
+                locationManager.requestAlwaysAuthorization()
+            case .restricted:
+                locationManager.requestAlwaysAuthorization()
+                break
+            case .authorizedAlways:
+                locationManager.startUpdatingLocation()
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            }
+        }
+    
+    
+    
 }
