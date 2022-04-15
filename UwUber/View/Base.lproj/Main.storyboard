@@ -77,8 +77,7 @@
                                             <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="LoginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="www-gV-dVD"/>
-                                            <segue destination="P0s-Ep-iyT" kind="show" id="Snr-Dt-Edm"/>
+                                            <action selector="LoginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M96-p8-con"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -112,14 +111,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="OhT-m6-Mfb"/>
                     <connections>
-                        <outlet property="LoginButton" destination="vhZ-Q1-n68" id="RRD-hE-3XO"/>
                         <outlet property="emailTextField" destination="vr3-49-bCK" id="EMW-ak-Kh7"/>
                         <outlet property="passwordTextField" destination="7dP-Bp-Sx8" id="ikD-1d-yiN"/>
+                        <segue destination="P0s-Ep-iyT" kind="show" identifier="GoToMap" id="cxE-A6-PIr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-24" y="-338"/>
+            <point key="canvasLocation" x="-130" y="-367"/>
         </scene>
         <!--Sign Up Controller-->
         <scene sceneID="JPZ-kt-3GG">

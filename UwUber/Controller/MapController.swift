@@ -19,9 +19,13 @@ class MapController : UIViewController {
         return map
     }()
     
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
+    
         checkUserLoggedIn()
         checkLocationAuthorization()
         map.showsUserLocation = true
@@ -42,10 +46,8 @@ class MapController : UIViewController {
             print(" User is not logged in learn to spell")
         }
         else{
-           
             print (" User ID is \(Auth.auth().currentUser?.uid)")
             setHomeScreenView()
-         
             print("test")
         }
     }
@@ -53,6 +55,9 @@ class MapController : UIViewController {
         super.viewDidLayoutSubviews()
         map.frame=view.bounds
     }
+    
+    
+    
     
     func signUserOut(){
         
