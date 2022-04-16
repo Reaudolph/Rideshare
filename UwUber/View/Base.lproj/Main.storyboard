@@ -208,18 +208,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yll-iG-nof" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="395"/>
+            <point key="canvasLocation" x="-150" y="329"/>
         </scene>
         <!--Map Controller-->
         <scene sceneID="Mk9-6d-aES">
             <objects>
-                <viewController storyboardIdentifier="MapController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P0s-Ep-iyT" customClass="MapController" customModule="UwUber" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="V4y-GU-1cV" customClass="I">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                <viewController storyboardIdentifier="MapController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="P0s-Ep-iyT" customClass="MapController" customModule="UwUber" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V4y-GU-1cV" userLabel="View" customClass="I">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LjP-Iq-Fnq">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                            <searchBar contentMode="redraw" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nEU-aC-A9G">
+                                <rect key="frame" x="0.0" y="59" width="428" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LjP-Iq-Fnq">
+                                <rect key="frame" x="0.0" y="59" width="428" height="784"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZmM-ge-ed2"/>
@@ -228,10 +232,14 @@
                             <constraint firstItem="ZmM-ge-ed2" firstAttribute="trailing" secondItem="LjP-Iq-Fnq" secondAttribute="trailing" id="3wL-tw-yNd"/>
                             <constraint firstItem="LjP-Iq-Fnq" firstAttribute="centerX" secondItem="V4y-GU-1cV" secondAttribute="centerX" id="H74-eC-W03"/>
                             <constraint firstItem="ZmM-ge-ed2" firstAttribute="bottom" secondItem="LjP-Iq-Fnq" secondAttribute="bottom" id="S3t-1H-ijC"/>
+                            <constraint firstItem="LjP-Iq-Fnq" firstAttribute="top" secondItem="ZmM-ge-ed2" secondAttribute="top" constant="15" id="Yeo-rs-cZZ"/>
                             <constraint firstItem="LjP-Iq-Fnq" firstAttribute="leading" secondItem="ZmM-ge-ed2" secondAttribute="leading" id="p1G-NV-S8j"/>
+                            <constraint firstItem="nEU-aC-A9G" firstAttribute="centerX" secondItem="V4y-GU-1cV" secondAttribute="centerX" id="xEU-Js-wRb"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="m0k-s4-xYf"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7Z-FT-l1l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -257,7 +265,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oVu-FZ-qBF"/>
         <segue reference="a3X-8c-VUu"/>
     </inferredMetricsTieBreakers>
     <resources>

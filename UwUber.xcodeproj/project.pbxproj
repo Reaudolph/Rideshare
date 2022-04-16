@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A8641BE280B50F400486C09 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8641BD280B50F400486C09 /* Extensions.swift */; };
+		0A8641C6280B58CC00486C09 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8641C5280B58CC00486C09 /* LocationManager.swift */; };
+		0A8641C9280B783900486C09 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 0A8641C8280B783900486C09 /* FloatingPanel */; };
+		0A8641CB280B78E900486C09 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8641CA280B78E900486C09 /* SearchViewController.swift */; };
 		0ABDD5DE27FA405D004CDC57 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABDD5DD27FA405D004CDC57 /* SignUpController.swift */; };
 		0ACABE8D27FBEA8D001E5AEF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ACABE8C27FBEA8D001E5AEF /* GoogleService-Info.plist */; };
 		0ACABE9027FBED0F001E5AEF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0ACABE8F27FBED0F001E5AEF /* FirebaseAuth */; };
@@ -23,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A8641BD280B50F400486C09 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		0A8641C5280B58CC00486C09 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		0A8641CA280B78E900486C09 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0ABDD5DD27FA405D004CDC57 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		0ACABE8C27FBEA8D001E5AEF /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0ACABE9527FBF434001E5AEF /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
@@ -42,6 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ACABE9927FC1A90001E5AEF /* FirebaseAppCheck in Frameworks */,
+				0A8641C9280B783900486C09 /* FloatingPanel in Frameworks */,
 				0ACABE9227FBED0F001E5AEF /* FirebaseDatabase in Frameworks */,
 				0ACABE9027FBED0F001E5AEF /* FirebaseAuth in Frameworks */,
 				0ACABE9427FBED0F001E5AEF /* FirebaseStorage in Frameworks */,
@@ -51,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A8641BC280B50D800486C09 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0A8641BD280B50F400486C09 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		0AD028D227F7728A0044BD2F = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +86,7 @@
 		0AD028DD27F7728A0044BD2F /* UwUber */ = {
 			isa = PBXGroup;
 			children = (
+				0A8641BC280B50D800486C09 /* Utils */,
 				0AD028F427F7734F0044BD2F /* Controller */,
 				0AD028F327F773460044BD2F /* View */,
 				0AD028F227F773410044BD2F /* Model */,
@@ -104,6 +121,8 @@
 				0AD028E227F7728A0044BD2F /* LoginScreenController.swift */,
 				0ABDD5DD27FA405D004CDC57 /* SignUpController.swift */,
 				0ACABE9527FBF434001E5AEF /* MapController.swift */,
+				0A8641C5280B58CC00486C09 /* LocationManager.swift */,
+				0A8641CA280B78E900486C09 /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -129,6 +148,7 @@
 				0ACABE9127FBED0F001E5AEF /* FirebaseDatabase */,
 				0ACABE9327FBED0F001E5AEF /* FirebaseStorage */,
 				0ACABE9827FC1A90001E5AEF /* FirebaseAppCheck */,
+				0A8641C8280B783900486C09 /* FloatingPanel */,
 			);
 			productName = UwUber;
 			productReference = 0AD028DB27F7728A0044BD2F /* UwUber.app */;
@@ -161,6 +181,7 @@
 			packageReferences = (
 				0ACABE8E27FBED0F001E5AEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				0ACABE9727FC1A90001E5AEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0A8641C7280B783900486C09 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			productRefGroup = 0AD028DC27F7728A0044BD2F /* Products */;
 			projectDirPath = "";
@@ -192,9 +213,12 @@
 			files = (
 				0AD028E327F7728A0044BD2F /* LoginScreenController.swift in Sources */,
 				0AD028DF27F7728A0044BD2F /* AppDelegate.swift in Sources */,
+				0A8641CB280B78E900486C09 /* SearchViewController.swift in Sources */,
 				0AD028E127F7728A0044BD2F /* SceneDelegate.swift in Sources */,
+				0A8641C6280B58CC00486C09 /* LocationManager.swift in Sources */,
 				0ACABE9627FBF434001E5AEF /* MapController.swift in Sources */,
 				0ABDD5DE27FA405D004CDC57 /* SignUpController.swift in Sources */,
+				0A8641BE280B50F400486C09 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +382,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -386,7 +410,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -414,6 +438,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0A8641C7280B783900486C09 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		0ACABE8E27FBED0F001E5AEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -433,6 +465,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0A8641C8280B783900486C09 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A8641C7280B783900486C09 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
 		0ACABE8F27FBED0F001E5AEF /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0ACABE8E27FBED0F001E5AEF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
