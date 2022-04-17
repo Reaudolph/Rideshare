@@ -48,7 +48,7 @@ class LocationManager : NSObject{
                 
                 
                 
-                let result = Location(title: "", coordinates: place.location?.coordinate)
+                let result = Location(title: name, coordinates: place.location?.coordinate)
                 return result
             })
             completion(models)

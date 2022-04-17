@@ -120,8 +120,8 @@
 			children = (
 				0AD028E227F7728A0044BD2F /* LoginScreenController.swift */,
 				0ABDD5DD27FA405D004CDC57 /* SignUpController.swift */,
-				0ACABE9527FBF434001E5AEF /* MapController.swift */,
 				0A8641C5280B58CC00486C09 /* LocationManager.swift */,
+				0ACABE9527FBF434001E5AEF /* MapController.swift */,
 				0A8641CA280B78E900486C09 /* SearchViewController.swift */,
 			);
 			path = Controller;
