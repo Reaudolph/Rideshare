@@ -17,43 +17,20 @@ import FloatingPanel
 
 class MapController : UIViewController, SearchViewControllerDelegate {
 
-    
-    
     private let locationManager = CLLocationManager()
     private let map: MKMapView = {
         let map = MKMapView()
         
         return map
     }()
-    
-    func searchViewController(_ vc: SearchViewController, didSelectLocationWith coordinates: CLLocationCoordinate2D?) {
-        guard let coordinates = coordinates else {
-            print("tesssst")
-            return
-            
-            
-        }
 
-        map.removeAnnotations(map.annotations)
-        print("owotest")
-        let pin = MKPointAnnotation()
-        let coordinates2 = CLLocationCoordinate2D(latitude: 111, longitude: 111)
-        pin.coordinate = coordinates2
-        map.addAnnotation(pin)
-        map.setRegion(MKCoordinateRegion(center: coordinates, span: MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7)), animated: true)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
         checkLocationAuthorization()
         checkUserLoggedIn()
-        
-        
-
     }
-    
-    
+
     func checkUserLoggedIn (){
         
         if Auth.auth().currentUser?.uid == nil {
@@ -72,6 +49,8 @@ class MapController : UIViewController, SearchViewControllerDelegate {
             print("test")
         }
     }
+  
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         map.frame=view.bounds
@@ -88,29 +67,18 @@ class MapController : UIViewController, SearchViewControllerDelegate {
             
         }
     }
-    
 
-    
     func setHomeScreenView(){
         super.viewDidLoad()
         view.addSubview(map)
-        
-        
-        
+        let searchVC = SearchViewController()
+        searchVC.delegateSelect = self
         let panel = FloatingPanelController()
-        panel.set(contentViewController: SearchViewController())
+        panel.set(contentViewController: searchVC)
         panel.addPanel(toParent: self)
-
-        
-       
-        
         map.showsUserLocation = true
         map.userTrackingMode = .follow
-        let searchVC = SearchViewController()
-        searchVC.delegate = self
-        
-        
-        
+  
     }
     
     func checkLocationAuthorization() {	
@@ -133,6 +101,17 @@ class MapController : UIViewController, SearchViewControllerDelegate {
             }
         }
     
-    
-    
+    func searchViewController(_ vc: SearchViewController, didSelectLocationWith coordinates: CLLocationCoordinate2D?) {
+        guard let coordinates = coordinates else {
+            print("tesssst")
+            return
+        }
+        map.removeAnnotations(map.annotations)
+        print("owotest")
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinates
+        map.addAnnotation(pin)
+        map.setRegion(MKCoordinateRegion(center: coordinates, span: MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7)), animated: true)
+    }
+
 }

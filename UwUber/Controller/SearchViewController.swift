@@ -19,7 +19,7 @@ protocol SearchViewControllerDelegate : AnyObject {
 
 class SearchViewController : UIViewController,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource {
     
-     var delegate: SearchViewControllerDelegate?
+     var delegateSelect: SearchViewControllerDelegate?
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -61,15 +61,13 @@ class SearchViewController : UIViewController,UITextFieldDelegate,UITableViewDel
         tableView.deselectRow(at: indexPath, animated: true)
         // Notify map controller to show pin
         let coordinate = locations[indexPath.row].coordinates
-        print(coordinate)
-        delegate?.searchViewController(self, didSelectLocationWith : coordinate)
+        print(coordinate ?? 666)
+
+        delegateSelect?.searchViewController(self, didSelectLocationWith: coordinate)
+    
         print("Item pressed")
-        
-        
-        
     }
-    
-    
+ 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         field.resignFirstResponder()
         if let text = field.text, !text.isEmpty {
@@ -78,7 +76,6 @@ class SearchViewController : UIViewController,UITextFieldDelegate,UITableViewDel
                     self?.locations = locations
                     self?.tableView.reloadData()
                 }
-                
         }
     }
         return true
