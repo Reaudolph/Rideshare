@@ -16,8 +16,13 @@ import FloatingPanel
 
 
 class MapController : UIViewController, SearchViewControllerDelegate {
+    
+    
+    var user:User? {
+        didSet{ }
+    }
 
-    private let locationManager = CLLocationManager()
+    private let locationManager = LocationHandler.shared.locationManager
     private let map: MKMapView = {
         let map = MKMapView()
         
@@ -27,8 +32,29 @@ class MapController : UIViewController, SearchViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Map"
+        
         checkLocationAuthorization()
         checkUserLoggedIn()
+        fetchUserData()
+        fetchDrivers()
+        
+        
+        
+    }
+   
+    
+    func fetchDrivers(){
+        guard let location = locationManager?.location else { return}
+        Service.shared.fetchDrivers(location: location) { driver in
+            print("Debug driver is \(driver.location)")
+            guard let coordinate = driver.location?.coordinate else { return
+                
+            }
+            let anno = DriverA(uid: driver.uid, coordinate: coordinate)
+            
+            self.map.addAnnotation(anno)
+           
+        }
     }
 
     func checkUserLoggedIn (){
@@ -61,6 +87,12 @@ class MapController : UIViewController, SearchViewControllerDelegate {
         
         do {
             try Auth.auth().signOut()
+            DispatchQueue.main.async {
+                let nav = self.storyboard?.instantiateViewController(withIdentifier: "LoginScreenController") as! LoginScreenController
+                self.present(nav, animated: true, completion: nil)
+                
+            }
+
             print("User signed out")
         } catch {
             print("Debug: Error signing out")
@@ -85,19 +117,19 @@ class MapController : UIViewController, SearchViewControllerDelegate {
         
             switch CLLocationManager.authorizationStatus() {
             case .authorizedWhenInUse:
-                locationManager.requestAlwaysAuthorization()
+                locationManager?.requestAlwaysAuthorization()
                 break
             case .denied:
-                locationManager.requestAlwaysAuthorization()
+                locationManager?.requestAlwaysAuthorization()
                 break
             case .notDetermined:
-                locationManager.requestAlwaysAuthorization()
+                locationManager?.requestAlwaysAuthorization()
             case .restricted:
-                locationManager.requestAlwaysAuthorization()
+                locationManager?.requestAlwaysAuthorization()
                 break
             case .authorizedAlways:
-                locationManager.startUpdatingLocation()
-                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                locationManager?.startUpdatingLocation()
+                locationManager?.desiredAccuracy = kCLLocationAccuracyBest
             }
         }
     
@@ -106,12 +138,20 @@ class MapController : UIViewController, SearchViewControllerDelegate {
             print("tesssst")
             return
         }
-        map.removeAnnotations(map.annotations)
+//        map.removeAnnotations(map.annotations)
         print("owotest")
         let pin = MKPointAnnotation()
         pin.coordinate = coordinates
         map.addAnnotation(pin)
         map.setRegion(MKCoordinateRegion(center: coordinates, span: MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7)), animated: true)
     }
-
+    
+    func fetchUserData (){
+        guard let currentUid = Auth.auth().currentUser?.uid else { return}
+        Service.shared.fetchUserData(uid:currentUid) { user in
+            self.user = user
+        }
+    }
+    
+    
 }
